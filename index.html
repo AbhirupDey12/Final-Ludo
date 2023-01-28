@@ -13,32 +13,31 @@
 </head>
 
 <body>
+
     <audio id="diceSound">
         <source src="dice.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
     </audio>
     <audio id="killedSound">
         <source src="killed.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
     </audio>
     <audio id="winSound">
         <source src="win.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
     </audio>
     <audio id="inoutSound">
         <source src="inout.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
     </audio>
     <audio id="stepSound">
         <source src="step.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
     </audio>
+
     <div class="fixed">
+
         <div class="welcome">
             <div class="setting">
                 <div class="logo">
                     <img src="icon.png" class="logo">
                 </div>
+
                 <div class="name">
                     <input type="text" class="ri" placeholder="Red player name...">
                     <input type="text" class="gi" placeholder="Green player name...">
@@ -47,13 +46,18 @@
                     <button class="play">Play</button><br>
                     <span class="note">if only two players playing enter only two names</span>
                 </div>
+
                 <div class="footer">
                     Multiplayer Ludo Game
                 </div>
+                
             </div>
         </div>
+
         <div class="mainframe">
+
             <div class="diceboard">
+
                 <div class="info">
                     <span class="playername">
                         Player 1
@@ -62,8 +66,8 @@
                         0
                     </div>
                 </div>
-                <div class="info">
 
+                <div class="info">
                     <div class="b-dice" onclick="dice(this,3)">
                         0
                     </div>
@@ -71,6 +75,7 @@
                         Player 4
                     </span>
                 </div>
+
             </div>
 
             <div class="mdiceboard">
@@ -89,9 +94,9 @@
                     <div class="g-dice" onclick="dice(this,1)">
                         0
                     </div>
-
                 </div>
             </div>
+
             <div class="ludoboard">
                 <div class="red">
                     <div class="playerzone">
@@ -270,8 +275,8 @@
             </div>
         </div>
 
-        <script src="game.js"></script>
     </div>
+    <script src="game.js"></script>
 </body>
 
 </html>
