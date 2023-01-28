@@ -29,7 +29,7 @@ var mplayername = document.getElementsByClassName('mplayername');
 var welcomescreen = document.getElementsByClassName('welcome')[0];
 
 var pp = [];
-//alert(playername.length);
+
 play.addEventListener("click", function () {
     if (gi.value === "") {
         var i;
@@ -63,9 +63,6 @@ play.addEventListener("click", function () {
         mplayername[0].innerHTML = ri.value;
         pp.push('r');
     }
-
-
-
 
     if (yi.value === "") {
         var i;
@@ -123,8 +120,6 @@ play.addEventListener("click", function () {
     }
 
 });
-
-//alert(playerzone.length);
 
 gdice[0].style.display = "none";
 rdice[0].style.display = "none";
@@ -227,7 +222,6 @@ function motionOn(pno) {
         for (i = 0; i < 4; i++) {
 
             r[i].classList.add("animate__animated", "animate__tada");
-            //        r[i].classList.remove("animate__animated","animate__tada");  
             y[i].classList.remove("animate__animated", "animate__tada");
             g[i].classList.remove("animate__animated", "animate__tada");
             b[i].classList.remove("animate__animated", "animate__tada");
@@ -235,8 +229,8 @@ function motionOn(pno) {
             g[i].style.zIndex = "0";
             b[i].style.zIndex = "0";
             y[i].style.zIndex = "0";
-        }
 
+        }
 
     } else if (pno === 1) {
         var i;
@@ -259,8 +253,7 @@ function motionOn(pno) {
         for (i = 0; i < 4; i++) {
 
             y[i].classList.add("animate__animated", "animate__tada");
-            r[i].classList.remove("animate__animated", "animate__tada");
-            //              y[i].classList.remove("animate__animated","animate__tada");  
+            r[i].classList.remove("animate__animated", "animate__tada"); 
             g[i].classList.remove("animate__animated", "animate__tada");
             b[i].classList.remove("animate__animated", "animate__tada");
 
@@ -277,7 +270,6 @@ function motionOn(pno) {
             r[i].classList.remove("animate__animated", "animate__tada");
             y[i].classList.remove("animate__animated", "animate__tada");
             g[i].classList.remove("animate__animated", "animate__tada");
-            //              b[i].classList.remove("animate__animated","animate__tada");
             r[i].style.zIndex = "0";
             g[i].style.zIndex = "0";
             b[i].style.zIndex = "+99";
@@ -302,7 +294,6 @@ function diceRotation(pno) {
     if (pno === 0) {
         if (pp.includes('r')) {
 
-
             if (winpos.includes('r')) {
                 diceRotation(1);
                 return 0;
@@ -315,7 +306,6 @@ function diceRotation(pno) {
                 }
 
                 if (rstate.includes(1) && moves[0] > 0) {
-
 
                 } else {
 
@@ -341,7 +331,6 @@ function diceRotation(pno) {
             diceRotation(1);
         }
     }
-    //    }
 
     if (pno === 1) {
         if (pp.includes('g')) {
@@ -374,8 +363,6 @@ function diceRotation(pno) {
                     }
                 }
 
-
-
             }
                 , 800);
         } else {
@@ -386,7 +373,6 @@ function diceRotation(pno) {
 
     if (pno === 2) {
         if (pp.includes('y')) {
-
 
             if (winpos.includes('y')) {
                 diceRotation(3);
@@ -417,8 +403,6 @@ function diceRotation(pno) {
                     }
                 }
 
-
-
             }
                 , 800);
         } else {
@@ -443,7 +427,6 @@ function diceRotation(pno) {
                     return 0;
                 }
 
-
                 if (bstate.includes(1) && moves[3] > 0) {
 
                 } else {
@@ -461,8 +444,6 @@ function diceRotation(pno) {
                     }
                 }
 
-
-
             }
                 , 800);
 
@@ -478,41 +459,10 @@ function dice(obj, pno) {
     var num = Math.floor((Math.random() * 6) + 1);
     pmove = num;
     obj.innerHTML = num;
-    //    if(num==6){
     moves[pno] = num;
     motionOn(pno);
     diceRotation(pno);
-    //if(pno==0){
-    //  if(!rstate.includes(1)){
-    //        
-    //           activePlayer(pno); 
-    //        }
-    //        
-    //    } 
-    //    
-    //
-    //    if(pno==1){
-    //  if(!gstate.includes(1)){
-    //        activePlayer(pno);
-    //    }
-    //       
-    //}
-    //if(pno==2){
-    //  if(!ystate.includes(1)){
-    //        activePlayer(pno);
-    //    }  
-    //   
-    //}
-    //    if(pno==3){
-    //  if(!bstate.includes(1)){
-    //        activePlayer(pno);
-    //    }  
-
 }
-
-
-
-
 
 function kill(pno, p) {
 
@@ -527,8 +477,6 @@ function kill(pno, p) {
             var green = '<span onclick="movegreen(this,' + i + ')" class="rp material-icons g" style="z-index: 0;">stars</span>';
 
             var yellow = '<span onclick="moveyellow(this,' + i + ')" class="rp material-icons y" style="z-index: 0;">stars</span>';
-
-
 
             var check = step[redpath[rp[pno]]].innerHTML;
             console.log(check);
@@ -566,9 +514,6 @@ function kill(pno, p) {
         }
 
     }
-
-
-
 
     if (p === 1) {
         if (safeplace.includes(greenpath[gp[pno]])) {
@@ -614,11 +559,7 @@ function kill(pno, p) {
                 return 1427;
             }
         }
-
     }
-
-
-
 
     if (p === 2) {
         if (safeplace.includes(bluepath[bp[pno]])) {
@@ -664,7 +605,6 @@ function kill(pno, p) {
                 return 1427;
             }
         }
-
     }
 
     if (p === 3) {
@@ -714,8 +654,6 @@ function kill(pno, p) {
 
     }
 
-
-
 }
 
 function movered(obj, pno) {
@@ -728,7 +666,6 @@ function movered(obj, pno) {
         console.log(rp[pno]);
         if (rp[pno] > 56) {
             rp[pno] -= moves[0];
-
             return 0;
         }
         if (rp[pno] === 56) {
@@ -738,7 +675,6 @@ function movered(obj, pno) {
             rstate[pno] = 0;
             obj.style.display = "none";
             return 0;
-
         }
         motionOn(5);
         kill(pno, 0);
@@ -755,7 +691,6 @@ function movered(obj, pno) {
             } else {
                 obj.remove();
             }
-            //        kill();
         }
     } else {
         if (moves[0] === 6) {
@@ -767,7 +702,6 @@ function movered(obj, pno) {
             step[redpath[rp[pno]]].innerHTML = "<span onclick='movered(this," + pno + ")' class='rp material-icons r'>stars</span>" + prevpl;
             moves[0] = 0;
         }
-
 
     }
     diceRotation(0);
@@ -821,10 +755,8 @@ function movegreen(obj, pno) {
 
 
     }
-    //    activePlayer(1);
     diceRotation(1);
 }
-
 
 function moveblue(obj, pno) {
     if (moves[3] === 0) {
@@ -873,12 +805,9 @@ function moveblue(obj, pno) {
             moves[3] = 0;
         }
 
-
     }
-    //    activePlayer(3);
     diceRotation(3);
 }
-
 
 function moveyellow(obj, pno) {
     if (moves[2] === 0) {
@@ -926,7 +855,6 @@ function moveyellow(obj, pno) {
             step[yellowpath[yp[pno]]].innerHTML = "<span onclick='moveyellow(this," + pno + ")' class='rp material-icons y'>stars</span>" + prevpl;
             moves[2] = 0;
         }
-
 
     }
     diceRotation(2);
