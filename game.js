@@ -130,7 +130,7 @@ ydice[1].style.display = "none";
 bdice[1].style.display = "none";
 rdice[1].style.display = "none";
 
-var redpath = [19, 20, 21, 22, 23, 15, 12, 9, 6, 3, 0, 1, 2, 5, 8, 11, 14, 17, 24, 25, 26, 27, 28, 29, 41, 53, 52, 51, 50, 49, 48, 56, 59, 62, 65, 68, 71, 70, 69, 66, 63, 60, 57, 54, 47, 46, 45, 44, 43, 42, 30, 31, 32, 33, 34, 35];
+var redpath = [ 19, 20, 21, 22, 23, 15, 12, 9, 6, 3, 0, 1, 2, 5, 8, 11, 14, 17, 24, 25, 26, 27, 28, 29, 41, 53, 52, 51, 50, 49, 48, 56, 59, 62, 65, 68, 71, 70, 69, 66, 63, 60, 57, 54, 47, 46, 45, 44, 43, 42, 30, 31, 32, 33, 34, 35 ];
 
 var greenpath = [5, 8, 11, 14, 17, 24, 25, 26, 27, 28, 29, 41, 53, 52, 51, 50, 49, 48, 56, 59, 62, 65, 68, 71, 70, 69, 66, 63, 60, 57, 54, 47, 46, 45, 44, 43, 42, 30, 18, 19, 20, 21, 22, 23, 15, 12, 9, 6, 3, 0, 1, 4, 7, 10, 13, 16];
 
@@ -160,7 +160,10 @@ var totalpb = 4;
 
 var winpos = [];
 
+// Function for determining the winner (Winner Logic)
+
 function winner(pl) {
+
     if (pl === 'r') {
         if (totalpr === 0) {
             winsound.play();
@@ -174,6 +177,7 @@ function winner(pl) {
             diceRotation(0);
         }
     }
+
     if (pl === 'g') {
         if (totalpg === 0 ) {
             winsound.play();
@@ -187,6 +191,7 @@ function winner(pl) {
             diceRotation(1);
         }
     }
+
     if (pl === 'b') {
         if (totalpb === 0) {
             winsound.play();
@@ -200,6 +205,7 @@ function winner(pl) {
             diceRotation(3);
         }
     }
+    
     if (pl === 'y') {
         if (totalpy === 0) {
             winsound.play();
@@ -218,8 +224,7 @@ function winner(pl) {
 
 function motionOn(pno) {
     if (pno === 0) {
-        var i;
-        for (i = 0; i < 4; i++) {
+        for ( let i = 0; i < 4; i++) {
 
             r[i].classList.add("animate__animated", "animate__tada");
             y[i].classList.remove("animate__animated", "animate__tada");
@@ -233,13 +238,11 @@ function motionOn(pno) {
         }
 
     } else if (pno === 1) {
-        var i;
-        for (i = 0; i < 4; i++) {
+        for ( let i = 0; i < 4; i++) {
 
             g[i].classList.add("animate__animated", "animate__tada");
             r[i].classList.remove("animate__animated", "animate__tada");
-            y[i].classList.remove("animate__animated", "animate__tada");
-            //              g[i].classList.remove("animate__animated","animate__tada");  
+            y[i].classList.remove("animate__animated", "animate__tada"); 
             b[i].classList.remove("animate__animated", "animate__tada");
 
             r[i].style.zIndex = "0";
@@ -249,8 +252,7 @@ function motionOn(pno) {
         }
 
     } else if (pno === 2) {
-        var i;
-        for (i = 0; i < 4; i++) {
+        for ( let i = 0; i < 4; i++) {
 
             y[i].classList.add("animate__animated", "animate__tada");
             r[i].classList.remove("animate__animated", "animate__tada"); 
