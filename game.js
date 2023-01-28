@@ -337,7 +337,7 @@ function diceRotation(pno) {
                 , 800);
 
         } else {
-            pmove = 7;
+            pmove = 7 ;
             diceRotation(1);
         }
     }
