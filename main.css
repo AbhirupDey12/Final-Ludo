@@ -11,7 +11,7 @@ body {
     user-select: none;
     background-color: rgb(139, 121, 121);
     background-size: 56.57px 56.57px;
-    background-image: url('https://wallpaperaccess.com/full/1492662.jpg');
+    background-image: url('https://i.pinimg.com/originals/0b/59/34/0b5934b623f3c6f5377f221959d77982.gif');
     background-position: center;
     background-size: cover;
 }
@@ -129,8 +129,10 @@ input::placeholder {
 }
 
 .playername {
-    color: black;
+    color: rgb(239, 222, 222);
+    text-shadow: 1px 1px rgb(169, 163, 163);
     font-size: 20px;
+    margin-bottom: 5px;
 }
 
 .diceboard {

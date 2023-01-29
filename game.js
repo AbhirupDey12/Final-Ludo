@@ -313,16 +313,30 @@ var pmove;
 
 // Here , pno is the parameter that has to be passed to the function for determining which colour dice to rotate
 
+// Here , pno is the parameter that has to be passed to the function for determining which colour dice to rotate
+
+// 0 ----> Red Part
+// 1 ----> Green Part
+// 2 ----> Blue Part
+// 4 ----> yellow Part
+
 function diceRotation(pno) {
 
     if (pno === 0) {
+
+        // To check whether red colour dice is selected by the user or not
+
         if (pp.includes('r')) {
 
+        // To check the this color dice has already win or not
             if (winpos.includes('r')) {
+                // Here , 1 is passed so that the dice position changes from the red to green part
                 diceRotation(1);
                 return 0;
             }
 
+            // Normal dice rotation logic is implemented here 
+            
             setTimeout(function () {
 
                 if (pmove === 6 || pmove === 7) {
