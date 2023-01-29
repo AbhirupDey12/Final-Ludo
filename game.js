@@ -148,7 +148,7 @@ var gstate = [0, 0, 0, 0];
 var bstate = [0, 0, 0, 0];
 var ystate = [0, 0, 0, 0];
 
-var moves = [0, 0, 0, 0];
+var  moves = [0, 0, 0, 0];
 var safeplace = [19, 6, 5, 27, 52, 65, 66, 44];
 
 var totalplayer = 4;
@@ -172,6 +172,7 @@ function winner(pl) {
             rdice[1].style.display = "none";
             var winno = winpos.indexOf('r') + 1;
             playerroom[0].innerHTML = "<img src='crown" + winno + ".png' class='crown'>";
+            // Doubt
             pmove = 7;
             moves[0] = 0;
             diceRotation(0);
@@ -221,6 +222,9 @@ function winner(pl) {
         }
     }
 }
+
+
+// This is the function for the motion of the elements in ecah till the user plays for other team
 
 function motionOn(pno) {
     if (pno === 0) {
@@ -290,8 +294,11 @@ function motionOn(pno) {
 }
 
 var pmove;
-function diceRotation(pno) {
 
+// Function for the rotation of the dice
+
+// Doubt
+function diceRotation(pno) {
 
     if (pno === 0) {
         if (pp.includes('r')) {
@@ -307,7 +314,7 @@ function diceRotation(pno) {
                     return 0;
                 }
 
-                if (rstate.includes(1) && moves[0] > 0) {
+                if ( rstate.includes(1) && moves[0] > 0 ) {
 
                 } else {
 
@@ -325,9 +332,8 @@ function diceRotation(pno) {
                     }
 
                 }
-            }
-                , 800);
-
+            }, 800);
+            
         } else {
             pmove = 7 ;
             diceRotation(1);
@@ -336,7 +342,6 @@ function diceRotation(pno) {
 
     if (pno === 1) {
         if (pp.includes('g')) {
-
 
             if (winpos.includes('g')) {
                 diceRotation(2);
@@ -417,7 +422,6 @@ function diceRotation(pno) {
     if (pno === 3) {
         if (pp.includes('b')) {
 
-
             if (winpos.includes('b')) {
                 diceRotation(0);
                 return 0;
@@ -425,7 +429,6 @@ function diceRotation(pno) {
 
             setTimeout(function () {
                 if (pmove === 6 || pmove === 7) {
-
                     return 0;
                 }
 
@@ -456,6 +459,7 @@ function diceRotation(pno) {
     }
 }
 
+// Doubt
 function dice(obj, pno) {
     dicesound.play();
     var num = Math.floor((Math.random() * 6) + 1);
@@ -466,6 +470,7 @@ function dice(obj, pno) {
     diceRotation(pno);
 }
 
+// Doubt
 function kill(pno, p) {
 
     if (p === 0) {
@@ -482,6 +487,7 @@ function kill(pno, p) {
 
             var check = step[redpath[rp[pno]]].innerHTML;
             console.log(check);
+
             if (check === green) {
                 killedsound.play();
                 step[redpath[rp[pno]]].innerHTML = "";
@@ -658,6 +664,7 @@ function kill(pno, p) {
 
 }
 
+// Doubt
 function movered(obj, pno) {
     if (moves[0] === 0) {
         return 0;
