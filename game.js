@@ -95,7 +95,7 @@ play.addEventListener("click", function () {
         mplayername[2].innerHTML = bi.value;
         pp.push('b');
     }
-    
+
     if (pp[0] === 'r') {
         rdice[0].style.display = "";
         rdice[1].style.display = "";
@@ -130,7 +130,7 @@ ydice[1].style.display = "none";
 bdice[1].style.display = "none";
 rdice[1].style.display = "none";
 
-var redpath = [ 19, 20, 21, 22, 23, 15, 12, 9, 6, 3, 0, 1, 2, 5, 8, 11, 14, 17, 24, 25, 26, 27, 28, 29, 41, 53, 52, 51, 50, 49, 48, 56, 59, 62, 65, 68, 71, 70, 69, 66, 63, 60, 57, 54, 47, 46, 45, 44, 43, 42, 30, 31, 32, 33, 34, 35 ];
+var redpath = [19, 20, 21, 22, 23, 15, 12, 9, 6, 3, 0, 1, 2, 5, 8, 11, 14, 17, 24, 25, 26, 27, 28, 29, 41, 53, 52, 51, 50, 49, 48, 56, 59, 62, 65, 68, 71, 70, 69, 66, 63, 60, 57, 54, 47, 46, 45, 44, 43, 42, 30, 31, 32, 33, 34, 35];
 
 var greenpath = [5, 8, 11, 14, 17, 24, 25, 26, 27, 28, 29, 41, 53, 52, 51, 50, 49, 48, 56, 59, 62, 65, 68, 71, 70, 69, 66, 63, 60, 57, 54, 47, 46, 45, 44, 43, 42, 30, 18, 19, 20, 21, 22, 23, 15, 12, 9, 6, 3, 0, 1, 4, 7, 10, 13, 16];
 
@@ -148,7 +148,7 @@ var gstate = [0, 0, 0, 0];
 var bstate = [0, 0, 0, 0];
 var ystate = [0, 0, 0, 0];
 
-var  moves = [0, 0, 0, 0];
+var moves = [0, 0, 0, 0];
 var safeplace = [19, 6, 5, 27, 52, 65, 66, 44];
 
 var totalplayer = 4;
@@ -159,7 +159,11 @@ var totalpy = 4;
 var totalpb = 4;
 
 var winpos = [];
-
+// Here , every section of the board is mapped 
+// 0 ----> Red
+// 1 ----> Green
+// 2 ----> Blue
+// 4 ----> yellow
 // Function for determining the winner (Winner Logic)
 
 function winner(pl) {
@@ -173,14 +177,16 @@ function winner(pl) {
             var winno = winpos.indexOf('r') + 1;
             playerroom[0].innerHTML = "<img src='crown" + winno + ".png' class='crown'>";
             // Doubt
+            // Here , pmove is the check to stop further dice rotation at that place
             pmove = 7;
+            // Here , moves[i] array is the check to stop further dice rotation at that place
             moves[0] = 0;
             diceRotation(0);
         }
     }
 
     if (pl === 'g') {
-        if (totalpg === 0 ) {
+        if (totalpg === 0) {
             winsound.play();
             winpos.push(pl);
             gdice[0].style.display = "none";
@@ -206,7 +212,7 @@ function winner(pl) {
             diceRotation(3);
         }
     }
-    
+
     if (pl === 'y') {
         if (totalpy === 0) {
             winsound.play();
@@ -224,11 +230,18 @@ function winner(pl) {
 }
 
 
-// This is the function for the motion of the elements in ecah till the user plays for other team
-
+// This is the function for the motion of the elements in each till the user clicks dice for the other section 
+// Here , every section of the board is mapped 
+// 0 ----> Red Part
+// 1 ----> Green Part
+// 2 ----> Blue Part
+// 4 ----> yellow Part
 function motionOn(pno) {
+
+    // Here , pno is for determining the part in which the elements of dice board should rotate
+
     if (pno === 0) {
-        for ( let i = 0; i < 4; i++) {
+        for (let i = 0; i < 4; i++) {
 
             r[i].classList.add("animate__animated", "animate__tada");
             y[i].classList.remove("animate__animated", "animate__tada");
@@ -242,11 +255,11 @@ function motionOn(pno) {
         }
 
     } else if (pno === 1) {
-        for ( let i = 0; i < 4; i++) {
+        for (let i = 0; i < 4; i++) {
 
             g[i].classList.add("animate__animated", "animate__tada");
             r[i].classList.remove("animate__animated", "animate__tada");
-            y[i].classList.remove("animate__animated", "animate__tada"); 
+            y[i].classList.remove("animate__animated", "animate__tada");
             b[i].classList.remove("animate__animated", "animate__tada");
 
             r[i].style.zIndex = "0";
@@ -256,10 +269,10 @@ function motionOn(pno) {
         }
 
     } else if (pno === 2) {
-        for ( let i = 0; i < 4; i++) {
+        for (let i = 0; i < 4; i++) {
 
             y[i].classList.add("animate__animated", "animate__tada");
-            r[i].classList.remove("animate__animated", "animate__tada"); 
+            r[i].classList.remove("animate__animated", "animate__tada");
             g[i].classList.remove("animate__animated", "animate__tada");
             b[i].classList.remove("animate__animated", "animate__tada");
 
@@ -269,8 +282,7 @@ function motionOn(pno) {
             y[i].style.zIndex = "+99";
         }
     } else if (pno === 3) {
-        var i;
-        for (i = 0; i < 4; i++) {
+        for (let i = 0; i < 4; i++) {
 
             b[i].classList.add("animate__animated", "animate__tada");
             r[i].classList.remove("animate__animated", "animate__tada");
@@ -298,6 +310,9 @@ var pmove;
 // Function for the rotation of the dice
 
 // Doubt
+
+// Here , pno is the parameter that has to be passed to the function for determining which colour dice to rotate
+
 function diceRotation(pno) {
 
     if (pno === 0) {
@@ -314,7 +329,7 @@ function diceRotation(pno) {
                     return 0;
                 }
 
-                if ( rstate.includes(1) && moves[0] > 0 ) {
+                if (rstate.includes(1) && moves[0] > 0) {
 
                 } else {
 
@@ -333,9 +348,9 @@ function diceRotation(pno) {
 
                 }
             }, 800);
-            
+
         } else {
-            pmove = 7 ;
+            pmove = 7;
             diceRotation(1);
         }
     }
